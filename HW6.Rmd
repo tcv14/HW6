@@ -1,0 +1,17 @@
+---
+title: "HW6"
+author: "Tiffany Cheng"
+date: "March 21, 2018"
+output: pdf_document
+---
+
+```{r,echo=FALSE}
+load("mapdata.RData")
+```
+
+## Map of the Sights
+```{r}
+hybrid
+watercolor
+```
+
