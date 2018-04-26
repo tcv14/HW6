@@ -7,6 +7,8 @@ cricket <- geocode("bude north cornwall cricket club")
 beach1 <- geocode("crooklets beach")
 beach2 <- geocode("summerleaze beach")
 pub <- geocode("the barrel at bude")
+hotel1 <- geocode("edgcumbe hotel")
+hotel2 <- geocode("the beach at bude")
 route_cp <- route("bude north cornwall cricket club", "the barrel at bude", structure = "route")
 
 # hybrid map
@@ -33,6 +35,22 @@ roadmap <- ggmap(map.road, extent = 'device') +
     data = pub,
     aes(x = lon, y = lat), 
     color = "green", size = 3) +
+  geom_point(
+    data = hotel1,
+    aes(x = lon, y = lat), 
+    color = "yellow", size = 3) +
+  geom_text(
+    data = hotel1,
+    aes(label = "Edgcumbe Hotel"),
+    hjust = 1, size = 3) +
+  geom_point(
+    data = hotel2,
+    aes(x = lon, y = lat), 
+    color = "yellow", size = 3) +
+  geom_text(
+    data = hotel2,
+    aes(label = "The Beach at Bude"),
+    hjust = 1, size = 3) +
   geom_text(
     data = pub,
     aes(label = "The Barrel at Bude"),
@@ -71,6 +89,22 @@ watercolor <- ggmap(map.watercolor, extent = 'device') +
     aes(label = "Summerleaze Beach"),
     hjust = 1, size = 3) +
   geom_point(
+    data = hotel1,
+    aes(x = lon, y = lat), 
+    color = "yellow", size = 3) +
+  geom_text(
+    data = hotel1,
+    aes(label = "Edgcumbe Hotel"),
+    hjust = 1, size = 3) +
+  geom_point(
+    data = hotel2,
+    aes(x = lon, y = lat), 
+    color = "yellow", size = 3) +
+  geom_text(
+    data = hotel2,
+    aes(label = "The Beach at Bude"),
+    hjust = 1, size = 3) +
+  geom_point(
     data = pub,
     aes(x = lon, y = lat), 
     color = "green", size = 3) +
@@ -84,7 +118,7 @@ watercolor <- ggmap(map.watercolor, extent = 'device') +
     lineend = "round", size = 1.5)
 
 # save workspace into .RData file
-# save.image(file="mapdata.RData") # uncomment when changes are made
+save.image(file="mapdata.RData") # uncomment when changes are made
 
 # load workspace from .RData file
-# load("mapdata.RData") # uncomment to load data
+load("mapdata.RData") # uncomment to load data
